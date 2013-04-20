@@ -1,3 +1,7 @@
+
+
+
+
 if [ "x$__GIT_PROMPT_DIR" == "x" ]
 then
   __GIT_PROMPT_DIR=~/.bash/bash-git-prompt
@@ -11,10 +15,11 @@ ResetColor="\[\033[0m\]"       # Text Reset
 Red="\[\033[0;31m\]"          # Red
 Yellow="\[\033[0;33m\]"       # Yellow
 Blue="\[\033[0;34m\]"         # Blue
-WHITE='\[\033[37m\]'
+WHITE="\[\033[37m\]"
+Green="\[\033[0;32m\]"       # Green
 
 # Bold
-BGreen="\[\033[1;32m\]"       # Green
+BGreen="\[\033[1;32m\]"       # Green bold
 
 # High Intensty
 IBlack="\[\033[0;90m\]"       # Black
@@ -38,8 +43,8 @@ GIT_PROMPT_REMOTE=" "
 GIT_PROMPT_UNTRACKED="…"
 GIT_PROMPT_CLEAN="${BGreen}✔"
 
-PROMPT_START="$Yellow$PathShort$ResetColor"
-PROMPT_END=" \n$WHITE$Time12a$ResetColor $ "
+PROMPT_START="$ResetColor"
+PROMPT_END=" \n$WHITE$PathShort$Green $ $ResetColor"
 
 
 function update_current_git_vars() {
@@ -83,7 +88,7 @@ function setGitPrompt() {
 		  STATUS="$STATUS$GIT_PROMPT_CHANGED$GIT_CHANGED$ResetColor"
 	  fi
 	  if [ "$GIT_UNTRACKED" -ne "0" ]; then
-		  STATUS="$STATUS$GIT_PROMPT_UNTRACKED$GIT_UNTRACKED$ResetColor"
+		  STATUS="$STATUS$GIT_PROMPT_UNTRACKED$Red$GIT_UNTRACKED$ResetColor"
 	  fi
 	  if [ "$GIT_CLEAN" -eq "1" ]; then
 		  STATUS="$STATUS$GIT_PROMPT_CLEAN"
