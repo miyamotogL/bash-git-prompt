@@ -43,8 +43,8 @@ GIT_PROMPT_REMOTE=" "
 GIT_PROMPT_UNTRACKED="…"
 GIT_PROMPT_CLEAN="${BGreen}✔"
 
-PROMPT_START="$ResetColor"
-PROMPT_END=" \n$WHITE$PathShort$Green $ $ResetColor"
+PROMPT_START="$WHITE$PathShort$ResetColor"
+PROMPT_END="$Green $ $ResetColor"
 
 
 function update_current_git_vars() {
